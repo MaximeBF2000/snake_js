@@ -24,7 +24,7 @@ class Apple {
   }
 
   renew(){
-    ctx.clearRect(this.x, this.y, cube_size, cube_size)
+    ctx.clearRect(this.x, this.y, cube_size + 2, cube_size + 2)
     this.generate()
   }
 
@@ -143,7 +143,7 @@ class Snake {
 
 
 
-const snake = new Snake("green", cube_size, 100)
+const snake = new Snake("green", cube_size, 70)
 const apple = new Apple()
 apple.generate()
 snake.init()
