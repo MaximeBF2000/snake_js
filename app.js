@@ -17,6 +17,7 @@ class Apple {
   }
 
   generate(){
+    // Générer une pomme à une position aléatoire sur le canvas
     this.x = Math.floor(Math.random() * (canvasWidth - cube_size))
     this.y = Math.floor(Math.random() * (canvasHeight - cube_size))
     ctx.fillStyle = "red"
@@ -24,6 +25,7 @@ class Apple {
   }
 
   renew(){
+    // Supprimer l'ancienne pomme et en générer une nouvelle
     ctx.clearRect(this.x, this.y, cube_size + 2, cube_size + 2)
     this.generate()
   }
@@ -41,6 +43,7 @@ class Snake {
   }
 
   spawn(){
+    // Faire apparaitre la première instance du snake en (0, 0)
     ctx.fillStyle = this.color
     ctx.fillRect(this.x, this.y, this.size, this.size)
   }
@@ -135,6 +138,7 @@ class Snake {
   }
 
   init(){
+    // Initialiser le snake avec la direction vers la droite
     this.spawn()
     this.move("r")
   }
@@ -142,14 +146,14 @@ class Snake {
 }
 
 
-
+// Créer les instances du jeu
 const snake = new Snake("green", cube_size, 70)
 const apple = new Apple()
 apple.generate()
 snake.init()
 
 
-
+// Détection des flèches du clavier
 window.addEventListener("keyup", event => {
   switch(event.keyCode){
     case 37:
